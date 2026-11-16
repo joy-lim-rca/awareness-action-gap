@@ -1,7 +1,7 @@
 /* data.js — loads the event list and works out dates.
    You normally don't need to edit this file.
    - Tries the Google Sheet (SHEET_CSV_URL in config.js) first
-   - Falls back to data/events.json if that is empty or fails
+   - Falls back to events.json if that is empty or fails
    - Hides past events; recurring events ("Thursdays") always show */
 (function () {
   "use strict";
@@ -202,7 +202,7 @@
       }
     }
     try {
-      var r = await fetch(cfg.FALLBACK_JSON_URL || "data/events.json", { cache: "no-store" });
+      var r = await fetch(cfg.FALLBACK_JSON_URL || "events.json", { cache: "no-store" });
       if (!r.ok) throw new Error("HTTP " + r.status);
       var data = await r.json();
       return { rows: Array.isArray(data) ? data : data.events || [], source: "json" };

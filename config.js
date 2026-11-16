@@ -5,14 +5,14 @@
 
 // ✏️ 1. Your published Google Sheet (CSV link).
 //    In Google Sheets: File → Share → Publish to web → choose the sheet → "Comma-separated values (.csv)" → Publish.
-//    Paste the link between the quotes. Leave it empty ("") to use data/events.json instead.
+//    Paste the link between the quotes. Leave it empty ("") to use events.json instead.
 var SHEET_CSV_URL = "";
 
 // ✏️ 2. The Google Form people use to suggest an event.
 var GOOGLE_FORM_URL = "https://forms.gle/REPLACE_WITH_YOUR_FORM";
 
 // ✏️ 3. Backup event list, used if the sheet link is empty or doesn't load.
-var FALLBACK_JSON_URL = "data/events.json";
+var FALLBACK_JSON_URL = "events.json";
 
 // ✏️ 4. Where the map starts (London) and how zoomed in it is.
 var MAP_CENTRE = [51.5072, -0.1276];

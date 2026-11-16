@@ -59,7 +59,7 @@
     if (!url || /REPLACE/i.test(url)) {
       var note = document.createElement("p");
       note.className = "form-note";
-      note.textContent = "Note for the team: the form link isn't set yet. Add it in js/config.js.";
+      note.textContent = "Note for the team: the form link isn't set yet. Add it in config.js.";
       a.insertAdjacentElement("afterend", note);
     }
   });
