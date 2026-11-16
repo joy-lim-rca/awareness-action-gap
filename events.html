@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events · Close the Gap</title>
+<meta name="description" content="Climate talks, workshops and volunteering in London, on a map and in a list.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f3eee4'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%231e1b18'/%3E%3Crect x='4' y='18' width='7' height='5' fill='%23c23b20'/%3E%3C/svg%3E">
+<!-- Remembers dark/light choice before the page draws (prevents a flash) -->
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("aag-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<script src="js/config.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/events.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== HEADER (same on every page: if you change it, change it everywhere) ===== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="index.html">
+      <span class="wordmark-kicker">Across RCA</span>
+      <span class="wordmark-name">Close the <em>Gap</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="the-gap.html">The gap</a></li>
+        <li><a href="first-step.html">First step</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="we-went.html">We went</a></li>
+        <li><a href="submit.html">Suggest an event</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="theme-toggle" type="button">◐ Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-head container">
+  <p class="chapter"><b>03</b> Events</p>
+  <h1>Find something near you</h1>
+  <p class="lede">Talks, workshops and volunteering around London. Past events disappear by themselves.</p>
+</section>
+
+<section class="container" style="padding-bottom:4rem">
+  <form id="filters" class="filters" aria-label="Filter events">
+    <fieldset>
+      <legend>Type</legend>
+      <div class="pills">
+        <label class="pill"><input type="radio" name="type" value="all" checked><span>All</span></label>
+        <label class="pill"><input type="radio" name="type" value="talk"><span>Talks</span></label>
+        <label class="pill"><input type="radio" name="type" value="workshop"><span>Workshops</span></label>
+        <label class="pill"><input type="radio" name="type" value="volunteering"><span>Volunteering</span></label>
+      </div>
+    </fieldset>
+    <div class="filter-row">
+      <label><span class="filter-label">When</span>
+        <select name="when">
+          <option value="any">Any time</option>
+          <option value="week">Next 7 days</option>
+          <option value="month">Next 30 days</option>
+        </select>
+      </label>
+      <label><span class="filter-label">Cost</span>
+        <select name="cost">
+          <option value="any">Any</option>
+          <option value="free">Free only</option>
+          <option value="paid">Paid</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" name="beginner" value="yes"> Beginner-friendly only</label>
+      <button class="btn btn-secondary filters-reset" type="reset">Clear filters</button>
+    </div>
+  </form>
+
+  <div class="results-bar">
+    <p id="results-count" class="results-count" aria-live="polite"></p>
+    <div class="view-toggle" role="group" aria-label="Show as">
+      <button type="button" data-view-btn="list" aria-pressed="true">List</button>
+      <button type="button" data-view-btn="map" aria-pressed="false">Map</button>
+    </div>
+  </div>
+
+  <div class="events-views" data-view="list">
+    <div id="events-list" class="events-list"></div>
+    <div class="events-map-wrap">
+      <div id="map" class="events-map" role="region" aria-label="Map of events. Everything on the map is also in the list."></div>
+      <p id="map-note" class="map-note"></p>
+    </div>
+  </div>
+
+  <p id="data-source" class="data-source"></p>
+</section>
+
+</main>
+
+<!-- ===== FOOTER (same on every page) ===== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="wordmark-name">Close the <em>Gap</em></p>
+      <p>A student project by Across RCA, Royal College of Art. Draft site, <span data-year>2026</span>.<br>
+      Events are run by other organisations. Please check details on their pages before you go.</p>
+    </div>
+    <ul aria-label="Footer links">
+      <li><a href="the-gap.html">What is the gap?</a></li>
+      <li><a href="events.html">Find an event</a></li>
+      <li><a href="submit.html">Suggest an event</a></li>
+      <li><a href="about.html">About this project</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
