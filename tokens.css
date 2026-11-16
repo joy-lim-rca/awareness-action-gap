@@ -1,0 +1,95 @@
+/* =========================================================
+   DESIGN TOKENS — all colours and fonts live here.
+   Change a value once and the whole site updates.
+   ========================================================= */
+
+/* ✏️ FONTS: pick fonts at fonts.google.com, then replace this line
+   and the --font-display / --font-body values below. */
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Young+Serif&display=swap");
+
+:root {
+  /* ✏️ Fonts */
+  --font-display: "Young Serif", Georgia, "Times New Roman", serif; /* big headings */
+  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif; /* everything else */
+
+  /* ✏️ LIGHT MODE COLOURS (the "paper" look) */
+  --paper: #f3eee4;         /* page background */
+  --paper-raised: #fbf8f2;  /* cards, boxes */
+  --paper-sunk: #e7dfcf;    /* footer, quiet areas */
+  --ink: #1e1b18;           /* main text */
+  --ink-soft: #4f4840;      /* secondary text */
+  --rule: #cfc4b1;          /* thin lines and borders */
+
+  --accent: #c23b20;        /* main accent: vermilion (buttons, highlights) */
+  --accent-hover: #9f2f18;
+  --on-accent: #fff8ee;     /* text on top of the accent colour */
+
+  --accent-2: #22398a;      /* second accent: ink blue */
+  --on-accent-2: #f7f3ea;
+
+  --highlight: #f2c14e;     /* marker-pen yellow (used for [VERIFY] labels) */
+  --on-highlight: #1e1b18;
+
+  /* Event type colours (used on cards and map pins) */
+  --type-talk: #22398a;
+  --type-workshop: #c23b20;
+  --type-volunteering: #7a4b00;
+
+  --focus: #22398a;         /* keyboard focus ring */
+  --grain-opacity: 0.45;    /* paper texture strength (0 = off) */
+  --grain-blend: multiply;
+
+  color-scheme: light;
+}
+
+/* ✏️ DARK MODE COLOURS ("night paper").
+   Used when the visitor's device is in dark mode, unless they picked light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1c1916;
+    --paper-raised: #26221e;
+    --paper-sunk: #15130f;
+    --ink: #efe8dc;
+    --ink-soft: #bfb6a8;
+    --rule: #4a433b;
+    --accent: #ff7a5c;
+    --accent-hover: #ff9b83;
+    --on-accent: #1c1916;
+    --accent-2: #a3b5ff;
+    --on-accent-2: #1c1916;
+    --highlight: #f2c14e;
+    --on-highlight: #1c1916;
+    --type-talk: #a3b5ff;
+    --type-workshop: #ff7a5c;
+    --type-volunteering: #e5b45a;
+    --focus: #f2c14e;
+    --grain-opacity: 0.18;
+    --grain-blend: screen;
+    color-scheme: dark;
+  }
+}
+
+/* Same dark colours again, for when someone presses the theme button.
+   (If you change dark colours above, change them here too.) */
+:root[data-theme="dark"] {
+  --paper: #1c1916;
+  --paper-raised: #26221e;
+  --paper-sunk: #15130f;
+  --ink: #efe8dc;
+  --ink-soft: #bfb6a8;
+  --rule: #4a433b;
+  --accent: #ff7a5c;
+  --accent-hover: #ff9b83;
+  --on-accent: #1c1916;
+  --accent-2: #a3b5ff;
+  --on-accent-2: #1c1916;
+  --highlight: #f2c14e;
+  --on-highlight: #1c1916;
+  --type-talk: #a3b5ff;
+  --type-workshop: #ff7a5c;
+  --type-volunteering: #e5b45a;
+  --focus: #f2c14e;
+  --grain-opacity: 0.18;
+  --grain-blend: screen;
+  color-scheme: dark;
+}
